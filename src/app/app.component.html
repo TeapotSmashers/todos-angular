@@ -1,1 +1,13 @@
-<div>abcde {{ loading }}</div>
+<div>loading {{ loading }}</div>
+<div>
+  session
+  <div *ngIf="!session && !loading; then loggedIn; else notLoggedIn"></div>
+  <ng-template #loggedIn>
+    <button (click)="this.supabaseService.signIn()">Sign in</button>
+  </ng-template>
+  <ng-template #notLoggedIn>
+    <button (click)="this.supabaseService.signOut()">Sign out</button>
+  </ng-template>
+  <!-- Fetched todo -->
+  <div *ngIf="session && !loading">Show Todos</div>
+</div>
