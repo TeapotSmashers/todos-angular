@@ -1,6 +1,15 @@
-<p>todos-home works!</p>
-<pre>
-  <code>
-    {{ value }}
-  </code>
-</pre>
+<h4>todos</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>description</th>
+      <th>done</th>
+    </tr>
+  </thead>
+  <tbody>
+    <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+  </tbody>
+</table>
