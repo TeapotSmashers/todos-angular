@@ -9,5 +9,8 @@
     <button (click)="this.supabaseService.signOut()">Sign out</button>
   </ng-template>
   <!-- Fetched todo -->
-  <div *ngIf="session && !loading">Show Todos</div>
+  <div *ngIf="session && !loading">
+    <h2>Show Todos</h2>
+    <app-todos-home></app-todos-home>
+  </div>
 </div>

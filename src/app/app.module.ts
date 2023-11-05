@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { SupabaseService } from './supabase.service';
+import { TodosHomeComponent } from './todos-home/todos-home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TodosHomeComponent],
   imports: [BrowserModule],
   providers: [SupabaseService],
   bootstrap: [AppComponent],
