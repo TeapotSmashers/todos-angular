@@ -12,6 +12,12 @@ export class TodosHomeComponent {
   todos: Todo[] = [];
   todosService: TodosService = inject(TodosService);
 
+  refreshList() {
+    this.todosService.getTodos().then((v) => {
+      this.todos = v;
+    });
+  }
+
   constructor() {
     this.todosService.getTodos().then((v) => {
       this.todos = v;

@@ -9,13 +9,18 @@ import { TodosService } from '../todos-home/todos.service';
 })
 export class TodoComponent {
   @Input() todo!: Todo;
+  @Input() refreshFunction!: () => void;
   todoService: TodosService = inject(TodosService);
 
   toggleTodo(id: number) {
-    this.todoService.toggleTodoCompleted(id);
+    this.todoService.toggleTodoCompleted(id).then((v) => {
+      this.todo = v;
+    });
   }
 
   deleteTodo(id: number) {
-    this.todoService.deleteTodo(id);
+    this.todoService.deleteTodo(id).then(() => {
+      this.refreshFunction();
+    });
   }
 }

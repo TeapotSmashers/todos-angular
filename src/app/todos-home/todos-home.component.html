@@ -1,5 +1,9 @@
 <h4>todos</h4>
 
 <ul>
-  <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+  <app-todo
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    [refreshFunction]="refreshList.bind(this)"
+  ></app-todo>
 </ul>
