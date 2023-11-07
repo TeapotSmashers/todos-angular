@@ -1,4 +1,7 @@
 <li>
+  <span>
+    <button (click)="deleteTodo(todo.id)">Delete</button>
+  </span>
   <label for="{{ todo.id }}">
     <span>
       <input
@@ -10,11 +13,7 @@
       />
     </span>
     <span>
-      <button (click)="deleteTodo(todo.id)">Delete</button>
-    </span>
-    <span>
-      {{ todo.id }},{{ todo.title }}, {{ todo.description }},
-      {{ todo.done }}
+      {{ todo.id }}, {{ todo.title }}, {{ todo.description }}, {{ todo.done }}
     </span>
   </label>
 </li>
