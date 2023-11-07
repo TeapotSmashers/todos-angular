@@ -1,12 +1,16 @@
-<div>loading {{ loading }}</div>
 <div>
-  session
-  <div *ngIf="!session && !loading; then loggedIn; else notLoggedIn"></div>
-  <ng-template #loggedIn>
-    <button (click)="this.supabaseService.signIn()">Sign in</button>
-  </ng-template>
-  <ng-template #notLoggedIn>
-    <button (click)="this.supabaseService.signOut()">Sign out</button>
+  <div *ngIf="loading; then loadingBlock; else confirmBlock"></div>
+  <ng-template #loadingBlock>Loading...</ng-template>
+  <ng-template #confirmBlock>
+    <div *ngIf="!session && !loading; then notLoggedIn; else loggedIn"></div>
+    <ng-template #notLoggedIn>
+      <button (click)="this.supabaseService.signIn()">Sign in</button>
+      <span> Please log in to fetch your todos.</span>
+    </ng-template>
+    <ng-template #loggedIn>
+      <button (click)="this.supabaseService.signOut()">Sign out</button>
+      <span> Logged in as {{ session?.user?.email }}</span>
+    </ng-template>
   </ng-template>
   <!-- Fetched todo -->
   <div *ngIf="session && !loading">

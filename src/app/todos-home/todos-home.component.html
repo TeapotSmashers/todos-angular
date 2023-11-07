@@ -1,9 +1,13 @@
-<h4>todos</h4>
-
-<ul>
-  <app-todo
-    *ngFor="let todo of todos"
-    [todo]="todo"
-    [refreshFunction]="refreshList.bind(this)"
-  ></app-todo>
-</ul>
+<section>
+  <app-create-todo></app-create-todo>
+</section>
+<section>
+  <h4>List of todos</h4>
+  <ul>
+    <app-todo
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      [refreshFunction]="refreshList.bind(this)"
+    ></app-todo>
+  </ul>
+</section>
