@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Todo } from '../todos-home/todo';
+import { TodosService } from '../todos-home/todos.service';
 
 @Component({
   selector: 'app-todo',
@@ -8,4 +9,13 @@ import { Todo } from '../todos-home/todo';
 })
 export class TodoComponent {
   @Input() todo!: Todo;
+  todoService: TodosService = inject(TodosService);
+
+  toggleTodo(id: number) {
+    this.todoService.toggleTodoCompleted(id);
+  }
+
+  deleteTodo(id: number) {
+    this.todoService.deleteTodo(id);
+  }
 }

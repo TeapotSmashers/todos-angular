@@ -1,6 +1,20 @@
-<tr>
-  <td>{{ todo.id }}</td>
-  <td>{{ todo.title }}</td>
-  <td>{{ todo.description }}</td>
-  <td>{{ todo.done }}</td>
-</tr>
+<li>
+  <label for="{{ todo.id }}">
+    <span>
+      <input
+        type="checkbox"
+        name="{{ todo.id }}"
+        id="{{ todo.id }}"
+        [checked]="todo.done"
+        (change)="toggleTodo(todo.id)"
+      />
+    </span>
+    <span>
+      <button (click)="deleteTodo(todo.id)">Delete</button>
+    </span>
+    <span>
+      {{ todo.id }},{{ todo.title }}, {{ todo.description }},
+      {{ todo.done }}
+    </span>
+  </label>
+</li>
