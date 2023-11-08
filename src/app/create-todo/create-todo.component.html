@@ -1,1 +1,53 @@
-<p>create-todo works!</p>
+<div>
+  <h4>Create Todo</h4>
+</div>
+<div>
+  <form [formGroup]="createTodoForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <label for="title">
+        <div>
+          <span>Title</span>
+        </div>
+        <input type="text" id="title" formControlName="title" />
+        <div
+          *ngIf="
+            createTodoForm.controls.title.errors &&
+            createTodoForm.controls.title.errors['required'] &&
+            createTodoForm.controls.title.touched
+          "
+        >
+          Title input is required.
+        </div>
+        <div
+          *ngIf="
+            createTodoForm.controls.title.errors &&
+            createTodoForm.controls.title.errors['minlength']
+          "
+        >
+          Title must be at least 3 characters.
+        </div>
+      </label>
+      <br />
+      <br />
+      <label for="description">
+        <div>
+          <span>Description</span>
+        </div>
+        <input type="text" id="description" formControlName="description" />
+        <div
+          *ngIf="
+            createTodoForm.controls.description.errors &&
+            createTodoForm.controls.description.errors['minlength']
+          "
+        >
+          Description must be at least 10 characters.
+        </div>
+      </label>
+      <br />
+      <br />
+      <div>
+        <button type="submit">Create</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

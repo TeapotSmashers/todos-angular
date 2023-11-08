@@ -1,5 +1,5 @@
 <section>
-  <app-create-todo></app-create-todo>
+  <app-create-todo [refreshFunction]="refreshList.bind(this)"></app-create-todo>
 </section>
 <section>
   <h4>List of todos</h4>

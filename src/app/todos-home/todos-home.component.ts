@@ -14,13 +14,31 @@ export class TodosHomeComponent {
 
   refreshList() {
     this.todosService.getTodos().then((v) => {
-      this.todos = v;
+      this.todos = v.sort((a, b) => {
+        // sort by created_at
+        if (a.created_at < b.created_at) {
+          return -1;
+        }
+        if (a.created_at > b.created_at) {
+          return 1;
+        }
+        return 0;
+      });
     });
   }
 
   constructor() {
     this.todosService.getTodos().then((v) => {
-      this.todos = v;
+      this.todos = v.sort((a, b) => {
+        // sort by created_at
+        if (a.created_at < b.created_at) {
+          return -1;
+        }
+        if (a.created_at > b.created_at) {
+          return 1;
+        }
+        return 0;
+      });
     });
   }
 }

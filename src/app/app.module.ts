@@ -7,10 +7,16 @@ import { TodosHomeComponent } from './todos-home/todos-home.component';
 import { TodoComponent } from './todo/todo.component';
 import { CommonModule } from '@angular/common';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, TodosHomeComponent, TodoComponent, CreateTodoComponent],
-  imports: [BrowserModule, CommonModule],
+  declarations: [
+    AppComponent,
+    TodosHomeComponent,
+    TodoComponent,
+    CreateTodoComponent,
+  ],
+  imports: [BrowserModule, CommonModule, ReactiveFormsModule],
   providers: [SupabaseService],
   bootstrap: [AppComponent],
 })
