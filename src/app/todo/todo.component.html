@@ -1,19 +1,21 @@
-<li>
-  <span>
-    <button (click)="deleteTodo(todo.id)">Delete</button>
-  </span>
-  <label for="{{ todo.id }}">
+<ng-template [ngIf]="!deleted">
+  <li>
     <span>
-      <input
-        type="checkbox"
-        name="{{ todo.id }}"
-        id="{{ todo.id }}"
-        [checked]="todo.done"
-        (change)="toggleTodo(todo.id)"
-      />
+      <button (click)="deleteTodo(todo.id)">Delete</button>
     </span>
-    <span>
-      {{ todo.id }}, {{ todo.title }}, {{ todo.description }}, {{ todo.done }}
-    </span>
-  </label>
-</li>
+    <label for="{{ todo.id }}">
+      <span>
+        <input
+          type="checkbox"
+          name="{{ todo.id }}"
+          id="{{ todo.id }}"
+          [checked]="todo.done"
+          (change)="toggleTodo(todo.id)"
+        />
+      </span>
+      <span>
+        {{ todo.id }}, {{ todo.title }}, {{ todo.description }}, {{ todo.done }}
+      </span>
+    </label>
+  </li>
+</ng-template>

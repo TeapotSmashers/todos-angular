@@ -11,6 +11,7 @@ export class TodoComponent {
   @Input() todo!: Todo;
   @Input() refreshFunction!: () => void;
   todoService: TodosService = inject(TodosService);
+  deleted = false;
 
   toggleTodo(id: number) {
     this.todoService.toggleTodoCompleted(id).then((v) => {
@@ -19,6 +20,7 @@ export class TodoComponent {
   }
 
   deleteTodo(id: number) {
+    this.deleted = true;
     this.todoService.deleteTodo(id).then(() => {
       this.refreshFunction();
     });
