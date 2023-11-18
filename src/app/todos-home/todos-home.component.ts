@@ -11,8 +11,11 @@ export class TodosHomeComponent {
   value = '';
   todos: Todo[] = [];
   todosService: TodosService = inject(TodosService);
+  refreshing = false;
+  fetching = false;
 
   refreshList() {
+    this.refreshing = true;
     this.todosService.getTodos().then((v) => {
       this.todos = v.sort((a, b) => {
         // sort by created_at
@@ -24,10 +27,12 @@ export class TodosHomeComponent {
         }
         return 0;
       });
+      this.refreshing = false;
     });
   }
 
   constructor() {
+    this.fetching = true;
     this.todosService.getTodos().then((v) => {
       this.todos = v.sort((a, b) => {
         // sort by created_at
@@ -39,6 +44,7 @@ export class TodosHomeComponent {
         }
         return 0;
       });
+      this.fetching = false;
     });
   }
 }

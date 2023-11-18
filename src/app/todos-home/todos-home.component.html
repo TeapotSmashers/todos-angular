@@ -2,6 +2,10 @@
   <app-create-todo [refreshFunction]="refreshList.bind(this)"></app-create-todo>
 </section>
 <section>
+  <article>
+    <div *ngIf="fetching">Fetching...</div>
+    <div *ngIf="refreshing">Refreshing...</div>
+  </article>
   <h4>List of todos</h4>
   <ul>
     <app-todo
